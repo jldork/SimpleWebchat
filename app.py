@@ -25,11 +25,6 @@ class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
-class DemoHandler(tornado.web.RequestHandler):
-    @tornado.web.asynchronous
-    def get(self):
-        self.render("demo.html")
-
 class ChatHandler(tornado.websocket.WebSocketHandler):
     username = "user"
     uid = "0"
@@ -97,7 +92,6 @@ settings = {
 
 handlers = [
     (r'/', IndexHandler),
-    (r'/demo',DemoHandler),
     (r'/chat',ChatHandler),
 ]
 
